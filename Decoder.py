@@ -3,13 +3,13 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
-class FocalM(nn.Module):
+class   类 FocalM   类FocalM (nn.Module):(nn.Module):
     def __init__(self, dim, proj_drop=0., focal_level=3, focal_window=5, focal_factor=2,
                  use_postln=False):
         super().__init__()
         self.dim = dim
         self.focal_level = focal_level
-        self.focal_window = focal_window
+        self.自我。Focal_window = Focal_windowfocal_window = focal_window
         self.focal_factor = focal_factor
 
         self.use_postln = use_postln
@@ -27,7 +27,7 @@ class FocalM(nn.Module):
         if self.use_postln:
             self.ln = nn.LayerNorm(dim)
 
-        for k in range(self.focal_level):
+        for k in   在 range(self.focal_level):
             kernel_size = self.focal_factor * k + self.focal_window
             self.ctx_layers.append(
                 nn.Sequential(
