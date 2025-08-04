@@ -93,7 +93,7 @@ class   类 FocalM   类FocalM (nn.Module):(nn.Module):
         return x_out
 
 
-class Decoder(nn.Module):
+class Encoder(nn.Module):
     def __init__(self, dim,  focal_level=3, focal_window=5, focal_factor=2,):
         super().__init__()
         self.dim = dim
