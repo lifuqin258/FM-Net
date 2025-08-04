@@ -1,8 +1,7 @@
 import torchvision.models as models
 import torch
 import torch.nn as nn
-from Encoder import *
-from Decoder_alex_no import *
+from Coder import *
 from Aggregation import *
 
 
@@ -14,7 +13,7 @@ class FM(nn.Module):
         self.feature_extractor_x = alexnet.features
         self.feature_extractor_y = alexnet.features
 
-        self.decoder = Decoder(dim=256)
+        self.decoder = Encoder(dim=256)
 
         self.aggregation = Aggregation()
 
@@ -27,7 +26,7 @@ class FM(nn.Module):
         x = self.feature_extractor_x(x)
         y = self.feature_extractor_y(y)
 
-        q = self.decoder(x, y)
+        q = self.encoder(x, y)
 
         x_focal = self.focal_x(x, q)
         y_focal = self.focal_y(y, q)
